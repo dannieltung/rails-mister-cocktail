@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Cocktail:</strong>
+  <%= @cocktail.name %>
+</p>
+<%=  simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.association :ingredient %>
+  <%= f.input :description %>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
+<h5>Doses Suggestions</h5>
+<table>
+  <thead>
+    <tr>
+      <th>Ingredient</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cocktail.doses.each do |dose|%>
+      <tr>
+        <td><%= dose.ingredient.name %></td>
+        <td><%= dose.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Back', cocktails_path %>

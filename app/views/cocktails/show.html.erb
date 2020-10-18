@@ -4,6 +4,8 @@
   <%= @cocktail.name %>
 </p>
 <%=  simple_form_for [@cocktail, @dose] do |f| %>
+  <!-- new_cocktail_dose GET /cocktails/:cocktail_id/doses/new(.:format) doses#new -->
+  <!-- a linha a cima dentro do rails routes é que mostrou o caminho da linha 6 -->
   <%= f.association :ingredient %>
   <%= f.input :description %>
   <%= f.submit class: 'btn btn-primary' %>

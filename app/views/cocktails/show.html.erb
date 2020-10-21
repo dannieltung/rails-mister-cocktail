@@ -4,7 +4,7 @@
   <%= @cocktail.name %>
 </p>
 <%=  simple_form_for [@cocktail, @dose] do |f| %>
-  <!-- new_cocktail_dose GET /cocktails/:cocktail_id/doses/new(.:format) doses#new -->
+  <!-- cocktail_doses POST /cocktails/:cocktail_id/doses(.:format) doses#create -->
   <!-- a linha a cima dentro do rails routes é que mostrou o caminho da linha 6 -->
   <%= f.association :ingredient %>
   <%= f.input :description %>
@@ -23,8 +23,20 @@
       <tr>
         <td><%= dose.ingredient.name %></td>
         <td><%= dose.description %></td>
+        <td><%= link_to 'delete', dose_path(dose), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger btn-sm' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%=  simple_form_for [@cocktail, @review] do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rating %>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
+<% @cocktail.reviews.each do |review| %>
+  <p><%= review.content %></p>
+  <p><%= '⭐' * review.rating %></p>
+  <td><%= link_to 'delete', review_path(review), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger btn-sm' %></td>
+  <hr>
+<% end %>
 <%= link_to 'Back', cocktails_path %>

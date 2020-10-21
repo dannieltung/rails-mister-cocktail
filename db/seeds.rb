@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+puts 'Destroying all reviews'
+Review.destroy_all
+
 puts 'Destroying all cocktails'
 Cocktail.destroy_all
 
@@ -18,7 +22,7 @@ Ingredient.destroy_all
 puts 'DROPPED db DROPPED'
 
 puts 'Creating ingredient....'
-5.times do
+10.times do
   ingredient = Ingredient.create(
     name: Faker::Food.ingredient
   )
@@ -35,5 +39,11 @@ puts 'Creating ingredient....'
     cocktail: cocktail
   )
   puts "Dose #{dose.id} created"
+  puts 'Creating review...'
+  review = Review.create(
+    content: Faker::Restaurant.review,
+    rating: rand(1..5),
+    cocktail: cocktail
+  )
 end
 puts 'Done!'

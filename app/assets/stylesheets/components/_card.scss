@@ -1,0 +1,33 @@
+.card {
+  height: 150px;
+  width: 250px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 1px;
+  text-shadow: 0 0 10px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
+  flex-grow: 1;
+}
+
+.card-description {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.card-description h2 {
+  font-size: 18px;
+  color: white;
+}
+
+.card-description:hover {
+  opacity: 0.5;
+}

@@ -22,7 +22,7 @@ class DosesController < ApplicationController
   def destroy
     @dose = Dose.find(params[:id])
     @dose.destroy
-    # redirect_to cocktail_path(@review.restaurant), notice: 'Review deleted.'
+    redirect_to cocktail_path(@dose.cocktail)
   end
 
   private
@@ -32,5 +32,6 @@ class DosesController < ApplicationController
     # os campos permit você precisa verificar a nomenclatura que esta vindo dos params
     # e NAO das instancias criadas no model.
     # vc não precisa permitir o cocktail_id porque a DOSE já esta sendo criada DENTRO da cocktail.
+    # vc pode ver a nomenclatura pelo rails routes
   end
 end

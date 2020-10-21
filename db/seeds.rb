@@ -40,10 +40,12 @@ puts 'Creating ingredient....'
   )
   puts "Dose #{dose.id} created"
   puts 'Creating review...'
-  review = Review.create(
-    content: Faker::Restaurant.review,
-    rating: rand(1..5),
-    cocktail: cocktail
-  )
+  10.times do
+    review = Review.create(
+      content: Faker::Restaurant.review,
+      rating: rand(1..5),
+      cocktail: cocktail
+    )
+  end
 end
 puts 'Done!'

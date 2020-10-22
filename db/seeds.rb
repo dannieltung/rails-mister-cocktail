@@ -22,7 +22,7 @@ Ingredient.destroy_all
 puts 'DROPPED db DROPPED'
 
 puts 'Creating ingredient....'
-6.times do
+3.times do
   ingredient = Ingredient.create(
     name: Faker::Food.ingredient
   )
@@ -40,12 +40,30 @@ puts 'Creating ingredient....'
   )
   puts "Dose #{dose.id} created"
   puts 'Creating review...'
-  10.times do
+  5.times do
     review = Review.create(
       content: Faker::Restaurant.review,
       rating: rand(1..5),
       cocktail: cocktail
     )
   end
+end
+3.times do
+  ingredient = Ingredient.create(
+    name: Faker::Food.ingredient
+  )
+  puts "Ingredient #{ingredient.id} created."
+  puts 'Creating cocktail...'
+  cocktail = Cocktail.create(
+    name: Faker::Beer.name
+  )
+  puts "Cocktail #{cocktail.id} created."
+  puts 'Creating dose...'
+  dose = Dose.create(
+    description: Faker::Food.measurement,
+    ingredient: ingredient,
+    cocktail: cocktail
+  )
+  puts "Dose #{dose.id} created"
 end
 puts 'Done!'

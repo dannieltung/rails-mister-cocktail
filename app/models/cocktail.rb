@@ -4,5 +4,5 @@ class Cocktail < ApplicationRecord
   has_many :reviews
   validates :name, presence: true, uniqueness: true
   # cocktails e ingredients não possuem uma ligação direta então precisa do through
-  has_one_attached :photo
+  has_many_attached :photos
 end

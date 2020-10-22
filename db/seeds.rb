@@ -22,7 +22,7 @@ Ingredient.destroy_all
 puts 'DROPPED db DROPPED'
 
 puts 'Creating ingredient....'
-10.times do
+6.times do
   ingredient = Ingredient.create(
     name: Faker::Food.ingredient
   )
